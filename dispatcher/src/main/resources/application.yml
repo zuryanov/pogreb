@@ -1,0 +1,5 @@
+server:
+  port: 8123
+bot:
+  name: bogreb_kz_bot
+  token: 5792073746:AAF3vXYFqSuyVVvFCUr4bP-Dssce4ssPQJg
