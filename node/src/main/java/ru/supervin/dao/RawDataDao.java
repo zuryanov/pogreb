@@ -1,7 +1,7 @@
-package ru.supervin.node.dao;
+package ru.supervin.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.supervin.node.entity.RawData;
+import ru.supervin.entity.RawData;
 
 public interface RawDataDao extends JpaRepository<RawData, Long> {
 

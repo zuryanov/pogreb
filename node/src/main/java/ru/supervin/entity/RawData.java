@@ -1,15 +1,13 @@
-package ru.supervin.node.entity;
+package ru.supervin.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import javax.persistence.*;
 
 @Data
+@EqualsAndHashCode(exclude = "id")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,4 +1,4 @@
-package ru.supervin.node.configuration;
+package ru.supervin.configuration;
 
 
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;

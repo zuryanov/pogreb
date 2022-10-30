@@ -1,4 +1,4 @@
-package ru.supervin.node.service;
+package ru.supervin.service;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 

@@ -1,14 +1,12 @@
-package ru.supervin.node.service.impl;
+package ru.supervin.service.impl;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.supervin.node.service.ConsumerService;
-import ru.supervin.node.service.MainService;
-import ru.supervin.node.service.ProducerService;
+import ru.supervin.service.ConsumerService;
+import ru.supervin.service.MainService;
 
 import static ru.supervin.commonrabbitmq.model.RabbitQueue.*;
 
