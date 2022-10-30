@@ -2,3 +2,4 @@ rootProject.name = 'pogreb'
 
 includeBuild 'dispatcher'
 includeBuild 'common-rabbitmq'
+includeBuild 'node'

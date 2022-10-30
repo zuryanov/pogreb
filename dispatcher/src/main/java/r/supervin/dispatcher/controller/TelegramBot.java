@@ -1,6 +1,7 @@
 package r.supervin.dispatcher.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 
 import java.util.logging.Level;
@@ -17,14 +18,14 @@ import javax.annotation.PostConstruct;
 
 @Component
 @Log4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TelegramBot extends TelegramLongPollingBot {
 
     @Value("${bot.name}")
-    private final String botName;
+    private String botName;
 
     @Value("${bot.token}")
-    private final String botToken;
+    private String botToken;
 
     private final UpdateController updateController;
 
@@ -45,12 +46,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update originalMessage) {
-        log.debug(originalMessage.getMessage().getText());
 
-        var response = new SendMessage();
-        response.setChatId(originalMessage.getMessage().getChatId().toString());
-        response.setText("Hello from bot");
-        sendAnswerMessage(response);
+        updateController.processUpdate(originalMessage);
     }
 
     public void sendAnswerMessage(SendMessage message) {

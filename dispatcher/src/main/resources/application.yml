@@ -3,3 +3,9 @@ server:
 bot:
   name: bogreb_kz_bot
   token: 5792073746:AAF3vXYFqSuyVVvFCUr4bP-Dssce4ssPQJg
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: userok
+    password: p@ssw0rd

@@ -1,0 +1,14 @@
+server:
+  port: 8124
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: userok
+    password: p@ssw0rd
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pogreb
+    username: selectel
+    password: selectel
+  jpa:
+    generate-ddl: true

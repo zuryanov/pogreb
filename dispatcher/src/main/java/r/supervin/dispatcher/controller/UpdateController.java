@@ -8,6 +8,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import r.supervin.dispatcher.service.UpdateProducer;
 import r.supervin.dispatcher.utils.MessageUtils;
 
+import static ru.supervin.commonrabbitmq.model.RabbitQueue.*;
+
 @Component
 @Log4j
 @RequiredArgsConstructor
@@ -53,19 +55,25 @@ public class UpdateController {
         setView(sendMessage);
     }
 
-    private void setView(SendMessage sendMessage) {
+    public void setView(SendMessage sendMessage) {
         telegramBot.sendAnswerMessage(sendMessage);
     }
 
     private void processPhotoMessage(Update update) {
-        
+        updateProducer.produce(PHOTO_MESSAGE_UPDATE, update);
+        saveFileReceiveView(update);
+    }
+
+    private void saveFileReceiveView(Update update) {
+        var sendMesage = messageUtils.generateSendMessageWithText(update, "file received, handling...");
+        setView(sendMesage);
     }
 
     private void processDocMessage(Update update) {
-        
+        updateProducer.produce(DOC_MESSAGE_UPDATE, update);
     }
 
     private void processTextMessage(Update update) {
-//        updateProducer.produce(RabbitQueue.TEXT_MESSAGE_UPDATE, update);
+        updateProducer.produce(TEXT_MESSAGE_UPDATE, update);
     }
 }
